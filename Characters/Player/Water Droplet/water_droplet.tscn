@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq64s2q1q0q3d"]
+
+[ext_resource type="Texture2D" uid="uid://b6fonu25c3the" path="res://Characters/Player/Water Droplet/water droplet.png" id="1_k8226"]
+[ext_resource type="Script" path="res://Worlds/WaterDroplet.gd" id="2_q1tli"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mjboh"]
+
+[node name="WaterDroplet" type="Sprite2D"]
+top_level = true
+texture = ExtResource("1_k8226")
+region_enabled = true
+region_rect = Rect2(113, 114, 21, 22)
+script = ExtResource("2_q1tli")
+speed = 800.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mjboh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
