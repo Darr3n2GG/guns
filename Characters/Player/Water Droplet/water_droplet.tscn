@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq64s2q1q0q3d"]
 
 [ext_resource type="Texture2D" uid="uid://b6fonu25c3the" path="res://Characters/Player/Water Droplet/water droplet.png" id="1_k8226"]
-[ext_resource type="Script" path="res://Worlds/WaterDroplet.gd" id="2_q1tli"]
+[ext_resource type="Script" path="res://Characters/Player/Water Droplet/WaterDroplet.gd" id="2_q1tli"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mjboh"]
 
