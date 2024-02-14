@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var max_speed = 400.0
 @export var acceleration = 10000.0
 @export var friction = 800.0
+@export var knockback_resistance = 1.0
+var knockback = Vector2.ZERO
 var projectile : PackedScene = preload("res://Characters/Player/Water Droplet/water_droplet.tscn")
 
 
@@ -21,6 +23,9 @@ func _physics_process(delta):
 	else:
 		velocity += input * acceleration * delta
 		velocity = velocity.limit_length(max_speed)
+	
+	knockback = knockback.move_toward(Vector2.ZERO, knockback_resistance)
+	velocity += knockback * delta
 		
 	var shoot_input = get_input("shoot_left", "shoot_right", "shoot_up", "shoot_down")
 	if $Timer.is_stopped() and shoot_input != Vector2.ZERO:

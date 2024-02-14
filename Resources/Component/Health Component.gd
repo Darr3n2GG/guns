@@ -11,19 +11,11 @@ func _ready():
 func Set_Health():
 	health = MaxHealth
 
-func damage(attack : Attack, creature : Object) -> void: 
-	var parent = get_parent()
-	if parent.get_groups() == ["enemy"]:
-		print("enemy spotted")
+func damage(attack : Attack) -> void: 
 	
 	health -= attack.Attack_Damage
 	
-	#if parent is player:
-		#parent.knockback += attack.knockback
-	#elif parent is Barrel or parent is BarrelE:
-		#parent.apply_central_impulse(attack.knockback * 100) #knockback func
-	#elif parent.get_groups() == ["enemy"]:
-		#parent.velocity += attack.knockback
+	get_parent().knockback = attack.Attack_Knockback
 
 	if health <= 0:
 		get_parent().die()
