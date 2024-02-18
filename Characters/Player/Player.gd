@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 
 @export var max_speed = 400.0
@@ -25,10 +26,10 @@ func _physics_process(delta):
 		velocity = velocity.limit_length(max_speed)
 	
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_resistance)
-	velocity += knockback * delta
+	velocity += knockback * 10 * delta
 		
 	var shoot_input = get_input("shoot_left", "shoot_right", "shoot_up", "shoot_down")
-	if $Timer.is_stopped() and shoot_input != Vector2.ZERO:
+	if $ShootCooldownTimer.is_stopped() and shoot_input != Vector2.ZERO:
 		shoot(shoot_input)
 	
 	
@@ -38,6 +39,9 @@ func shoot(shoot_direction : Vector2) -> void:
 	var new_projectile = projectile.instantiate() as Sprite2D
 	add_child(new_projectile)
 	new_projectile.set_as_top_level(true)
-	new_projectile.global_position = global_position
+	new_projectile.global_position = global_position + shoot_direction * 30
 	new_projectile.direction = shoot_direction
-	$Timer.start()
+	$ShootCooldownTimer.start()
+	
+func die() -> void:
+	print("you died")

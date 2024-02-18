@@ -11,9 +11,11 @@
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.81021, 1.81021)
+collision_mask = 2
 script = ExtResource("1_u3o48")
 max_speed = 325.0
 friction = 1000.0
+knockback_resistance = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1ikko")
@@ -25,14 +27,23 @@ texture = ExtResource("2_kuxjn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="ShootCooldownTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_eh54q")]
 
-[node name="HitboxComponent" parent="." instance=ExtResource("4_wqrih")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("hc") instance=ExtResource("4_wqrih")]
 show_behind_parent = true
+collision_layer = 1
+collision_mask = 2
+hc = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("RectangleShape2D_qmr0m")
+
+[node name="InvulnerableTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="InvulnerableTimer" to="HitboxComponent" method="_on_invulnerable_timer_timeout"]

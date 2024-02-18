@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://coh8mkkhugwh5"]
+[gd_scene load_steps=9 format=3 uid="uid://coh8mkkhugwh5"]
 
 [ext_resource type="Texture2D" uid="uid://borr41by1trmb" path="res://icon.svg" id="1_ip7t2"]
 [ext_resource type="Script" path="res://Characters/Enemy/Enemy.gd" id="2_skerx"]
@@ -12,22 +12,33 @@ size = Vector2(127.8, 127.8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hd1da"]
 size = Vector2(127.8, 127.8)
 
-[node name="Enemy" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvgui"]
+
+[node name="Enemy" type="CharacterBody2D"]
 modulate = Color(1, 0.223529, 0, 1)
 scale = Vector2(0.24363, 0.24363)
-texture = ExtResource("1_ip7t2")
+collision_layer = 2
 script = ExtResource("2_skerx")
+knockback_resistance = 10.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_286cl")]
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("hc") instance=ExtResource("4_eqe5m")]
+collision_layer = 2
 hc = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("RectangleShape2D_qu5u3")
 
 [node name="Hurtbox_Component" parent="." instance=ExtResource("5_g062m")]
-knockback_multiplier = 100.0
+collision_layer = 2
+knockback_multiplier = 250.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox_Component"]
 shape = SubResource("RectangleShape2D_hd1da")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ip7t2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fvgui")

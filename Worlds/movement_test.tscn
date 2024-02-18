@@ -12,3 +12,4 @@ texture = ExtResource("1_cw5s4")
 [node name="Player" parent="." instance=ExtResource("2_otdv0")]
 
 [node name="Enemy" parent="." instance=ExtResource("3_v2tjs")]
+position = Vector2(-226, 0)

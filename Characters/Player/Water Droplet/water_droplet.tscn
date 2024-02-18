@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b6fonu25c3the" path="res://Characters/Player/Water Droplet/water droplet.png" id="1_k8226"]
 [ext_resource type="Script" path="res://Characters/Player/Water Droplet/WaterDroplet.gd" id="2_q1tli"]
-[ext_resource type="PackedScene" uid="uid://c8f6t6wa8tuwh" path="res://Resources/Component/Hurtbox_Component.tscn" id="3_qe886"]
+[ext_resource type="PackedScene" uid="uid://c8f6t6wa8tuwh" path="res://Resources/Component/Hurtbox_Component.tscn" id="3_cnfu7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mjboh"]
 
@@ -18,10 +18,13 @@ wait_time = 0.45
 one_shot = true
 autostart = true
 
-[node name="Hurtbox_Component" parent="." instance=ExtResource("3_qe886")]
-knockback_multiplier = 100.0
+[node name="Hurtbox_Component" parent="." instance=ExtResource("3_cnfu7")]
+collision_layer = 0
+collision_mask = 2
+knockback_multiplier = 500.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox_Component"]
+[node name="Collision" type="CollisionShape2D" parent="Hurtbox_Component"]
 shape = SubResource("CircleShape2D_mjboh")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox_Component" to="." method="_on_hurtbox_component_area_entered"]

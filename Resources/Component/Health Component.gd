@@ -12,7 +12,6 @@ func Set_Health():
 	health = MaxHealth
 
 func damage(attack : Attack) -> void: 
-	
 	health -= attack.Attack_Damage
 	
 	get_parent().knockback = attack.Attack_Knockback
