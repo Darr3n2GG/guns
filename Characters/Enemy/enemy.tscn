@@ -18,6 +18,7 @@ size = Vector2(127.8, 127.8)
 modulate = Color(1, 0.223529, 0, 1)
 scale = Vector2(0.24363, 0.24363)
 collision_layer = 2
+collision_mask = 0
 script = ExtResource("2_skerx")
 knockback_resistance = 10.0
 
@@ -32,7 +33,7 @@ shape = SubResource("RectangleShape2D_qu5u3")
 
 [node name="Hurtbox_Component" parent="." instance=ExtResource("5_g062m")]
 collision_layer = 2
-knockback_multiplier = 250.0
+knockback_multiplier = 400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox_Component"]
 shape = SubResource("RectangleShape2D_hd1da")

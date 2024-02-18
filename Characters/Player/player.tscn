@@ -15,7 +15,7 @@ collision_mask = 2
 script = ExtResource("1_u3o48")
 max_speed = 325.0
 friction = 1000.0
-knockback_resistance = 10.0
+knockback_resistance = 25.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1ikko")
