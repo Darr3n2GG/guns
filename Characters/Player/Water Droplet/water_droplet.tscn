@@ -8,6 +8,7 @@
 
 [node name="WaterDroplet" type="Sprite2D"]
 top_level = true
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_k8226")
 region_enabled = true
 region_rect = Rect2(113, 114, 21, 22)

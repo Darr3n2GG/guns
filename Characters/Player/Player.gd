@@ -7,7 +7,6 @@ class_name Player
 @export var friction = 800.0
 @export var knockback_resistance = 1.0
 var knockback = Vector2.ZERO
-var projectile : PackedScene = preload("res://Characters/Player/Water Droplet/water_droplet.tscn")
 
 
 func get_input(left, right, up, down):
@@ -27,21 +26,10 @@ func _physics_process(delta):
 	
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_resistance)
 	velocity += knockback * 10 * delta
-		
-	var shoot_input = get_input("shoot_left", "shoot_right", "shoot_up", "shoot_down")
-	if $ShootCooldownTimer.is_stopped() and shoot_input != Vector2.ZERO:
-		shoot(shoot_input)
 	
+	look_at(get_global_mouse_position())
 	
 	move_and_slide()
-	
-func shoot(shoot_direction : Vector2) -> void:
-	var new_projectile = projectile.instantiate() as Sprite2D
-	add_child(new_projectile)
-	new_projectile.set_as_top_level(true)
-	new_projectile.global_position = global_position + shoot_direction * 30
-	new_projectile.direction = shoot_direction
-	$ShootCooldownTimer.start()
 	
 func die() -> void:
 	print("you died")

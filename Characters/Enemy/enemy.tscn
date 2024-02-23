@@ -33,7 +33,7 @@ shape = SubResource("RectangleShape2D_qu5u3")
 
 [node name="Hurtbox_Component" parent="." instance=ExtResource("5_g062m")]
 collision_layer = 2
-knockback_multiplier = 400.0
+knockback_multiplier = 800.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox_Component"]
 shape = SubResource("RectangleShape2D_hd1da")
