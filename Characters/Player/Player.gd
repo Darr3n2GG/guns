@@ -27,7 +27,6 @@ func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_resistance)
 	velocity += knockback * 10 * delta
 	
-	look_at(get_global_mouse_position())
 	
 	move_and_slide()
 	

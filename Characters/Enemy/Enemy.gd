@@ -6,10 +6,9 @@ var direction : Vector2
 var knockback : Vector2
 
 func _physics_process(delta: float) -> void:
+	direction = global_position.direction_to(Global.player_pos)
 	
-	velocity = global_position.direction_to(Global.player_pos) * speed
-	
-	direction = velocity.round().sign()
+	velocity = direction * speed
 	
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_resistance)
 	velocity += knockback * 10 * delta

@@ -24,7 +24,6 @@ shape = SubResource("RectangleShape2D_1ikko")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-3.72529e-09, -1.49012e-08)
-rotation = 1.5708
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_kuxjn")
 
@@ -45,11 +44,13 @@ shape = SubResource("RectangleShape2D_qmr0m")
 wait_time = 0.5
 one_shot = true
 
-[node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(50, 0)
+[node name="Gun" type="Node2D" parent="."]
 script = ExtResource("5_qwdnl")
 
-[node name="ShootCooldownTimer" type="Timer" parent="Muzzle"]
+[node name="Muzzle" type="Marker2D" parent="Gun"]
+position = Vector2(75, 0)
+
+[node name="ShootCooldownTimer" type="Timer" parent="Gun"]
 wait_time = 0.25
 one_shot = true
 
