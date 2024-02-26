@@ -7,6 +7,7 @@ class_name Player
 @export var friction = 800.0
 @export var knockback_resistance = 1.0
 var knockback = Vector2.ZERO
+var moving : bool
 
 
 func get_input(left, right, up, down):
@@ -20,13 +21,16 @@ func _physics_process(delta):
 			velocity -= velocity.normalized() * friction * delta
 		else:
 			velocity = Vector2.ZERO
+		Global.player_moving = false
 	else:
 		velocity += input * acceleration * delta
 		velocity = velocity.limit_length(max_speed)
+		Global.player_moving = true
 	
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_resistance)
 	velocity += knockback * 10 * delta
 	
+	Global.player_pos = global_position
 	
 	move_and_slide()
 	

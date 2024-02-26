@@ -27,8 +27,6 @@ position = Vector2(-3.72529e-09, -1.49012e-08)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_kuxjn")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="HealthComponent" parent="." instance=ExtResource("3_eh54q")]
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("hc") instance=ExtResource("4_wqrih")]
