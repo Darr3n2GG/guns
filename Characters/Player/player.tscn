@@ -52,4 +52,8 @@ position = Vector2(75, 0)
 wait_time = 0.25
 one_shot = true
 
+[node name="ReloadTimer" type="Timer" parent="Gun"]
+one_shot = true
+
 [connection signal="timeout" from="InvulnerableTimer" to="HitboxComponent" method="_on_invulnerable_timer_timeout"]
+[connection signal="timeout" from="Gun/ReloadTimer" to="Gun" method="_on_reload_timer_timeout"]
