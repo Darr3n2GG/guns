@@ -56,4 +56,3 @@ one_shot = true
 one_shot = true
 
 [connection signal="timeout" from="InvulnerableTimer" to="HitboxComponent" method="_on_invulnerable_timer_timeout"]
-[connection signal="timeout" from="Gun/ReloadTimer" to="Gun" method="_on_reload_timer_timeout"]

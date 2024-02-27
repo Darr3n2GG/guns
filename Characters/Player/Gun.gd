@@ -16,6 +16,9 @@ func _process(_delta: float) -> void:
 				shoot()
 		elif $ReloadTimer.is_stopped():
 			$ReloadTimer.start()
+			await $ReloadTimer.timeout
+			Global.cartridge -= 1
+			Global.ammo = Global.max_ammo
 
 		
 func shoot() -> void:
@@ -26,8 +29,3 @@ func shoot() -> void:
 	new_projectile.get_child(1).damage = Global.ammo_damage
 	Global.ammo -= 1
 	$ShootCooldownTimer.start()
-
-
-func _on_reload_timer_timeout() -> void:
-	Global.cartridge -= 1
-	Global.ammo = Global.max_ammo
