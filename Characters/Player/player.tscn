@@ -1,13 +1,121 @@
-[gd_scene load_steps=8 format=3 uid="uid://bime8252x4wu2"]
+[gd_scene load_steps=24 format=3 uid="uid://bime8252x4wu2"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_u3o48"]
-[ext_resource type="Texture2D" uid="uid://borr41by1trmb" path="res://icon.svg" id="2_kuxjn"]
+[ext_resource type="Texture2D" uid="uid://c7e445wifnlky" path="res://Characters/Player/assets/Head.png" id="2_upjym"]
+[ext_resource type="Texture2D" uid="uid://b6qp0ldluoj2m" path="res://Characters/Player/assets/Body.png" id="3_0s7uh"]
 [ext_resource type="PackedScene" uid="uid://bpdrkkdpu1hoc" path="res://Resources/Component/health_component.tscn" id="3_eh54q"]
+[ext_resource type="Texture2D" uid="uid://dqg6p6ykc0tax" path="res://Characters/Player/assets/Body UD.png" id="4_3gx7e"]
+[ext_resource type="Texture2D" uid="uid://yesvwk388fvp" path="res://Characters/Player/assets/Body LR.png" id="4_odjml"]
 [ext_resource type="PackedScene" uid="uid://dc560d02gq12i" path="res://Resources/Component/hitbox_component.tscn" id="4_wqrih"]
 [ext_resource type="Script" path="res://Characters/Player/Gun.gd" id="5_qwdnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ikko"]
 size = Vector2(52, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75lt8"]
+atlas = ExtResource("4_odjml")
+region = Rect2(0, 0, 57, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4g2x"]
+atlas = ExtResource("4_odjml")
+region = Rect2(57, 0, 57, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u1ri"]
+atlas = ExtResource("4_odjml")
+region = Rect2(114, 0, 57, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_221n1"]
+atlas = ExtResource("4_odjml")
+region = Rect2(171, 0, 57, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls43v"]
+atlas = ExtResource("4_odjml")
+region = Rect2(228, 0, 57, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlm8h"]
+atlas = ExtResource("4_odjml")
+region = Rect2(285, 0, 57, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k5ry"]
+atlas = ExtResource("4_3gx7e")
+region = Rect2(0, 0, 40, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx2bj"]
+atlas = ExtResource("4_3gx7e")
+region = Rect2(40, 0, 40, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1ae0"]
+atlas = ExtResource("4_3gx7e")
+region = Rect2(80, 0, 40, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksi1l"]
+atlas = ExtResource("4_3gx7e")
+region = Rect2(120, 0, 40, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70mwg"]
+atlas = ExtResource("4_3gx7e")
+region = Rect2(160, 0, 40, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j46mw"]
+atlas = ExtResource("4_3gx7e")
+region = Rect2(200, 0, 40, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlsor"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0s7uh")
+}],
+"loop": true,
+"name": &"Body",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75lt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4g2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u1ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_221n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls43v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlm8h")
+}],
+"loop": true,
+"name": &"Body LR",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k5ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx2bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1ae0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksi1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70mwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j46mw")
+}],
+"loop": true,
+"name": &"Body UD",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmr0m"]
 size = Vector2(52, 52)
@@ -23,9 +131,19 @@ knockback_resistance = 25.0
 shape = SubResource("RectangleShape2D_1ikko")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-3.72529e-09, -1.49012e-08)
+position = Vector2(0, -15)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_kuxjn")
+texture = ExtResource("2_upjym")
+region_enabled = true
+region_rect = Rect2(80, 51, 67, 56)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+editor_description = "offset for Body UD is x = -2, y = 4"
+position = Vector2(1, 3)
+scale = Vector2(0.400002, 0.400002)
+sprite_frames = SubResource("SpriteFrames_rlsor")
+animation = &"Body"
+frame_progress = 0.928435
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_eh54q")]
 
