@@ -212,6 +212,8 @@ sources/0 = SubResource("TileSetAtlasSource_fmlmy")
 texture = ExtResource("1_cw5s4")
 
 [node name="Player" parent="." instance=ExtResource("2_otdv0")]
+acceleration = 100000.0
+friction = 50000.0
 
 [node name="Enemy" parent="." instance=ExtResource("3_v2tjs")]
 process_mode = 4

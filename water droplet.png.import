@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6fonu25c3the"
-path="res://.godot/imported/water droplet.png-0e117175b8017058060610b7b69f8fbb.ctex"
+path="res://.godot/imported/water droplet.png-dc1e5caeeb6cb168a696a62c3073abf4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Player/Water Droplet/water droplet.png"
-dest_files=["res://.godot/imported/water droplet.png-0e117175b8017058060610b7b69f8fbb.ctex"]
+source_file="res://water droplet.png"
+dest_files=["res://.godot/imported/water droplet.png-dc1e5caeeb6cb168a696a62c3073abf4.ctex"]
 
 [params]
 
