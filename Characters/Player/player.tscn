@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Characters/Player/Gun.gd" id="5_qwdnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ikko"]
-size = Vector2(52, 52)
+size = Vector2(54, 54)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75lt8"]
 atlas = ExtResource("4_odjml")
@@ -66,9 +66,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_0s7uh")
 }],
-"loop": true,
+"loop": false,
 "name": &"Body",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -91,7 +91,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Body LR",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -114,11 +114,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"Body UD",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmr0m"]
-size = Vector2(52, 52)
+size = Vector2(54, 54)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -131,19 +131,21 @@ knockback_resistance = 25.0
 shape = SubResource("RectangleShape2D_1ikko")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -15)
-scale = Vector2(0.4, 0.4)
+position = Vector2(0.1, -10.2)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_upjym")
 region_enabled = true
 region_rect = Rect2(80, 51, 67, 56)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-editor_description = "offset for Body UD is x = -2, y = 4"
-position = Vector2(1, 3)
-scale = Vector2(0.400002, 0.400002)
+editor_description = "offset for Body is x = -1.1
+offset for Body UD is x = 1.1, y = 4
+offset for Body LR is x = 1.35, y = 0.5"
+position = Vector2(1.1, 16.8)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_rlsor")
 animation = &"Body"
-frame_progress = 0.928435
+offset = Vector2(-1.1, 0)
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_eh54q")]
 

@@ -25,6 +25,7 @@ func shoot() -> void:
 	var new_projectile = projectile.instantiate() as Sprite2D
 	owner.add_child(new_projectile)
 	new_projectile.set_as_top_level(true)
+	new_projectile.global_position = $Muzzle.global_position
 	new_projectile.transform = global_transform
 	new_projectile.get_child(1).damage = Global.ammo_damage
 	Global.ammo -= 1
