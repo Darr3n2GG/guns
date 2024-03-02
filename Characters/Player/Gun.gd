@@ -1,6 +1,6 @@
 extends Node2D
 
-var projectile : PackedScene = preload("res://Characters/Player/Water Droplet/water_droplet.tscn")
+var projectile : PackedScene = preload("res://Characters/Player/Bullet/Bullet.tscn")
 
 func _ready() -> void:
 	setup()
@@ -10,6 +10,11 @@ func setup() -> void:
 
 func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
+	if global_position > get_global_mouse_position():
+		$GunSprite.flip_v = true
+	else:
+		$GunSprite.flip_v = false
+	
 	if Global.cartridge > 0:
 		if Global.ammo > 0:
 			if $ShootCooldownTimer.is_stopped() and Input.is_action_pressed("shoot"):
@@ -28,4 +33,5 @@ func shoot() -> void:
 	new_projectile.transform = $Muzzle.global_transform
 	new_projectile.get_child(1).damage = Global.ammo_damage
 	Global.ammo -= 1
+	new_projectile.direction = global_position.direction_to(get_global_mouse_position())
 	$ShootCooldownTimer.start()

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bq64s2q1q0q3d"]
 
-[ext_resource type="Texture2D" uid="uid://3l7vd5radid5" path="res://Characters/Player/Water Droplet/Bullet.png" id="1_gueo0"]
-[ext_resource type="Script" path="res://Characters/Player/Water Droplet/WaterDroplet.gd" id="2_q1tli"]
-[ext_resource type="PackedScene" uid="uid://c8f6t6wa8tuwh" path="res://Resources/Component/Hurtbox_Component.tscn" id="3_cnfu7"]
+[ext_resource type="Texture2D" uid="uid://3l7vd5radid5" path="res://Characters/Player/Bullet/Bullet.png" id="1_p727s"]
+[ext_resource type="Script" path="res://Characters/Player/Bullet/Bullet.gd" id="2_5ugf1"]
+[ext_resource type="PackedScene" uid="uid://c8f6t6wa8tuwh" path="res://Resources/Component/Hurtbox_Component.tscn" id="3_akapf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6xqv"]
 size = Vector2(34, 16)
@@ -10,23 +10,22 @@ size = Vector2(34, 16)
 [node name="WaterDroplet" type="Sprite2D"]
 top_level = true
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_gueo0")
+texture = ExtResource("1_p727s")
 region_enabled = true
 region_rect = Rect2(191, 89, 34, 16)
-script = ExtResource("2_q1tli")
+script = ExtResource("2_5ugf1")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.45
 one_shot = true
 autostart = true
 
-[node name="Hurtbox_Component" parent="." instance=ExtResource("3_cnfu7")]
+[node name="Hurtbox_Component" parent="." instance=ExtResource("3_akapf")]
 collision_mask = 2
 knockback_multiplier = 500.0
 
 [node name="Collision" type="CollisionShape2D" parent="Hurtbox_Component"]
 position = Vector2(0, -4.76837e-07)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_a6xqv")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bime8252x4wu2"]
+[gd_scene load_steps=24 format=3 uid="uid://bime8252x4wu2"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_u3o48"]
 [ext_resource type="Texture2D" uid="uid://c7e445wifnlky" path="res://Characters/Player/assets/Head.png" id="2_upjym"]
@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://yesvwk388fvp" path="res://Characters/Player/assets/Body LR.png" id="4_odjml"]
 [ext_resource type="PackedScene" uid="uid://dc560d02gq12i" path="res://Resources/Component/hitbox_component.tscn" id="4_wqrih"]
 [ext_resource type="Script" path="res://Characters/Player/Gun.gd" id="5_qwdnl"]
-[ext_resource type="Texture2D" uid="uid://dusp03peapgrp" path="res://Characters/Player/assets/Hand R.png" id="9_2umxb"]
-[ext_resource type="Texture2D" uid="uid://she0odpoun5" path="res://Characters/Player/assets/Pistol.png" id="10_t5aud"]
-[ext_resource type="Texture2D" uid="uid://yte7phqmdnfu" path="res://Characters/Player/assets/Hand L.png" id="11_0a46d"]
+[ext_resource type="Texture2D" uid="uid://kaoqb0kds262" path="res://Characters/Player/assets/guns/Pistol.png" id="9_adpgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ikko"]
 size = Vector2(62, 90)
@@ -123,9 +121,6 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_u3o48")
-max_speed = 325.0
-friction = 5000.0
-knockback_resistance = 25.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1ikko")
@@ -163,17 +158,14 @@ one_shot = true
 [node name="Gun" type="Node2D" parent="."]
 script = ExtResource("5_qwdnl")
 
-[node name="R hand" type="Sprite2D" parent="Gun"]
-position = Vector2(56, 10)
-texture = ExtResource("9_2umxb")
+[node name="GunSprite" type="Sprite2D" parent="Gun"]
+position = Vector2(55, 13)
+texture = ExtResource("9_adpgp")
 region_enabled = true
-region_rect = Rect2(142, 102, 33, 30)
+region_rect = Rect2(142, 92, 46, 40)
 
-[node name="Muzzle" type="Sprite2D" parent="Gun"]
-position = Vector2(66, 0)
-texture = ExtResource("10_t5aud")
-region_enabled = true
-region_rect = Rect2(154, 92, 34, 27)
+[node name="Muzzle" type="Marker2D" parent="Gun"]
+position = Vector2(89, 0)
 
 [node name="ShootCooldownTimer" type="Timer" parent="Gun"]
 wait_time = 0.25
@@ -181,11 +173,5 @@ one_shot = true
 
 [node name="ReloadTimer" type="Timer" parent="Gun"]
 one_shot = true
-
-[node name="L hand" type="Sprite2D" parent="Gun"]
-position = Vector2(45, 11)
-texture = ExtResource("11_0a46d")
-region_enabled = true
-region_rect = Rect2(144, 87, 28, 27)
 
 [connection signal="timeout" from="InvulnerableTimer" to="HitboxComponent" method="_on_invulnerable_timer_timeout"]

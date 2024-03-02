@@ -20,7 +20,7 @@ Global="*res://Resources/Global.gd"
 
 [display]
 
-mouse_cursor/custom_image="res://water droplet.png"
+mouse_cursor/custom_image="res://Characters/Player/assets/guns/crosshair.png"
 
 [input]
 

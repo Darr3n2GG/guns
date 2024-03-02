@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3l7vd5radid5"
-path="res://.godot/imported/Bullet.png-9a4352b67cd5d5f5b60554c17991e042.ctex"
+uid="uid://bp5lq2l85emc7"
+path="res://.godot/imported/crosshair.png-e9437617e599d3c959319de8a9ec099d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Player/Water Droplet/Bullet.png"
-dest_files=["res://.godot/imported/Bullet.png-9a4352b67cd5d5f5b60554c17991e042.ctex"]
+source_file="res://Characters/Player/assets/guns/crosshair.png"
+dest_files=["res://.godot/imported/crosshair.png-e9437617e599d3c959319de8a9ec099d.ctex"]
 
 [params]
 

@@ -2,13 +2,15 @@ extends CharacterBody2D
 class_name Player
 
 @onready var Body_anim = $Body
-@export var max_speed = 400.0
-@export var acceleration = 10000.0
-@export var friction = 800.0
-@export var knockback_resistance = 1.0
+@export var max_speed = 325.0
+@export var friction = 5000.0
+const acceleration = 10000.0
+const knockback_resistance = 25.0
 var knockback = Vector2.ZERO
 var moving : bool
 
+func change_stats(type, percentage : float):
+	pass
 
 func get_input() -> Vector2:
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
@@ -34,11 +36,11 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func play_animation(input : Vector2) -> void:
-	if input.x == -1 or input == Vector2(-1,1 or -1).normalized():
+	if input.x == -1 or input.round() == Vector2(-1,1).normalized().round() or input.round() == Vector2(-1,-1).normalized().round():
 		Body_anim.play("Body LR")
 		Body_anim.flip_h = true
 		Body_anim.offset.y = 0.5
-	elif input.x == 1 or input == Vector2(1,1 or -1).normalized():
+	elif input.x == 1 or input.round() == Vector2(1,1).normalized().round() or input.round() == Vector2(1,-1).normalized().round():
 		Body_anim.play("Body LR")
 		Body_anim.flip_h = false
 		Body_anim.offset.y = 0.5
