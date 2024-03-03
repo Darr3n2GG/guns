@@ -3,7 +3,6 @@ class_name Health
 
 @export var MaxHealth: float = 10
 var health : float
-var can_damaged: bool = true
 
 func _ready():
 	Set_Health()

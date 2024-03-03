@@ -9,9 +9,6 @@ const knockback_resistance = 25.0
 var knockback = Vector2.ZERO
 var moving : bool
 
-func change_stats(type, percentage : float):
-	pass
-
 func get_input() -> Vector2:
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	return input_direction
