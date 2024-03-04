@@ -1,71 +1,71 @@
 [gd_scene load_steps=24 format=3 uid="uid://bime8252x4wu2"]
 
 [ext_resource type="Script" path="res://Characters/Player/Player.gd" id="1_u3o48"]
-[ext_resource type="Texture2D" uid="uid://c7e445wifnlky" path="res://Characters/Player/assets/Head.png" id="2_upjym"]
-[ext_resource type="Texture2D" uid="uid://b6qp0ldluoj2m" path="res://Characters/Player/assets/Body.png" id="3_0s7uh"]
+[ext_resource type="Texture2D" uid="uid://c7e445wifnlky" path="res://Characters/Player/assets/player/Head.png" id="2_plr63"]
 [ext_resource type="PackedScene" uid="uid://bpdrkkdpu1hoc" path="res://Resources/Component/health_component.tscn" id="3_eh54q"]
-[ext_resource type="Texture2D" uid="uid://dqg6p6ykc0tax" path="res://Characters/Player/assets/Body UD.png" id="4_3gx7e"]
-[ext_resource type="Texture2D" uid="uid://yesvwk388fvp" path="res://Characters/Player/assets/Body LR.png" id="4_odjml"]
+[ext_resource type="Texture2D" uid="uid://b6qp0ldluoj2m" path="res://Characters/Player/assets/player/Body.png" id="3_t461j"]
+[ext_resource type="Texture2D" uid="uid://yesvwk388fvp" path="res://Characters/Player/assets/player/Body LR.png" id="4_cnqwt"]
 [ext_resource type="PackedScene" uid="uid://dc560d02gq12i" path="res://Resources/Component/hitbox_component.tscn" id="4_wqrih"]
+[ext_resource type="Texture2D" uid="uid://dqg6p6ykc0tax" path="res://Characters/Player/assets/player/Body UD.png" id="5_ij034"]
 [ext_resource type="Script" path="res://Characters/Player/Gun.gd" id="5_qwdnl"]
-[ext_resource type="Texture2D" uid="uid://kaoqb0kds262" path="res://Characters/Player/assets/guns/Pistol.png" id="9_adpgp"]
+[ext_resource type="Texture2D" uid="uid://bk05uh4rjgw2c" path="res://Characters/Player/assets/guns/Pistol.png" id="9_adpgp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ikko"]
 size = Vector2(62, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dprf2"]
-atlas = ExtResource("4_odjml")
+atlas = ExtResource("4_cnqwt")
 region = Rect2(0, 0, 60, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_adxs6"]
-atlas = ExtResource("4_odjml")
+atlas = ExtResource("4_cnqwt")
 region = Rect2(60, 0, 60, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qh4r"]
-atlas = ExtResource("4_odjml")
+atlas = ExtResource("4_cnqwt")
 region = Rect2(120, 0, 60, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_772sm"]
-atlas = ExtResource("4_odjml")
+atlas = ExtResource("4_cnqwt")
 region = Rect2(180, 0, 60, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pqi0"]
-atlas = ExtResource("4_odjml")
+atlas = ExtResource("4_cnqwt")
 region = Rect2(240, 0, 60, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsp16"]
-atlas = ExtResource("4_odjml")
+atlas = ExtResource("4_cnqwt")
 region = Rect2(300, 0, 60, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iuw75"]
-atlas = ExtResource("4_3gx7e")
+atlas = ExtResource("5_ij034")
 region = Rect2(0, 0, 60, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rn5eu"]
-atlas = ExtResource("4_3gx7e")
+atlas = ExtResource("5_ij034")
 region = Rect2(60, 0, 60, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qskcb"]
-atlas = ExtResource("4_3gx7e")
+atlas = ExtResource("5_ij034")
 region = Rect2(120, 0, 60, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bj4d"]
-atlas = ExtResource("4_3gx7e")
+atlas = ExtResource("5_ij034")
 region = Rect2(180, 0, 60, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35xu6"]
-atlas = ExtResource("4_3gx7e")
+atlas = ExtResource("5_ij034")
 region = Rect2(240, 0, 60, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kts5"]
-atlas = ExtResource("4_3gx7e")
+atlas = ExtResource("5_ij034")
 region = Rect2(300, 0, 60, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rlsor"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_0s7uh")
+"texture": ExtResource("3_t461j")
 }],
 "loop": false,
 "name": &"Body",
@@ -127,7 +127,7 @@ shape = SubResource("RectangleShape2D_1ikko")
 
 [node name="Head" type="Sprite2D" parent="."]
 position = Vector2(-2, -17)
-texture = ExtResource("2_upjym")
+texture = ExtResource("2_plr63")
 hframes = 3
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
@@ -155,17 +155,13 @@ shape = SubResource("RectangleShape2D_1ikko")
 wait_time = 0.5
 one_shot = true
 
-[node name="Gun" type="Node2D" parent="."]
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(48, 7)
+texture = ExtResource("9_adpgp")
 script = ExtResource("5_qwdnl")
 
-[node name="GunSprite" type="Sprite2D" parent="Gun"]
-position = Vector2(55, 13)
-texture = ExtResource("9_adpgp")
-region_enabled = true
-region_rect = Rect2(142, 92, 46, 40)
-
 [node name="Muzzle" type="Marker2D" parent="Gun"]
-position = Vector2(89, 0)
+position = Vector2(27, -7)
 
 [node name="ShootCooldownTimer" type="Timer" parent="Gun"]
 wait_time = 0.25

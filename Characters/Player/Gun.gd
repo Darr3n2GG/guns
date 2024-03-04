@@ -1,4 +1,4 @@
-extends Node2D
+extends Sprite2D
 
 @onready var ReloadTimer = $ReloadTimer
 @onready var ShootTimer = $ShootCooldownTimer
@@ -13,10 +13,12 @@ func setup() -> void:
 
 func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
-	if global_position > get_global_mouse_position():
-		$GunSprite.flip_v = true
+	if owner.global_position > get_global_mouse_position():
+		flip_v = true
+		position.x = -48
 	else:
-		$GunSprite.flip_v = false
+		flip_v = false
+		position.x = 48
 	
 	if Global.cartridge > 0:
 		if Global.ammo > 0:

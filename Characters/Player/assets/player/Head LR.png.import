@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmwn3ecgxn7uh"
-path="res://.godot/imported/Head LR.png-1591b783b5ed3662ff43a9051289e180.ctex"
+path="res://.godot/imported/Head LR.png-1405ecd48075ef2e64a3f29197aefadf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Player/assets/Head LR.png"
-dest_files=["res://.godot/imported/Head LR.png-1591b783b5ed3662ff43a9051289e180.ctex"]
+source_file="res://Characters/Player/assets/player/Head LR.png"
+dest_files=["res://.godot/imported/Head LR.png-1405ecd48075ef2e64a3f29197aefadf.ctex"]
 
 [params]
 

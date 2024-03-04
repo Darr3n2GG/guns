@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yesvwk388fvp"
-path="res://.godot/imported/Body LR.png-f6e54a1e9bd87ad30c152dd2260eff7a.ctex"
+uid="uid://dusp03peapgrp"
+path="res://.godot/imported/Hand R.png-5bdce39e38795c7a3369f25fbdec12e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Player/assets/Body LR.png"
-dest_files=["res://.godot/imported/Body LR.png-f6e54a1e9bd87ad30c152dd2260eff7a.ctex"]
+source_file="res://Characters/Player/assets/player/Hand R.png"
+dest_files=["res://.godot/imported/Hand R.png-5bdce39e38795c7a3369f25fbdec12e9.ctex"]
 
 [params]
 

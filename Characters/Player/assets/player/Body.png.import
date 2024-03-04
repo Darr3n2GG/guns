@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqg6p6ykc0tax"
-path="res://.godot/imported/Body UD.png-ba1b4429207431e7db4f652d3ca7cc7b.ctex"
+uid="uid://b6qp0ldluoj2m"
+path="res://.godot/imported/Body.png-2f9e17b2bba85830923566325b2f4c44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Player/assets/Body UD.png"
-dest_files=["res://.godot/imported/Body UD.png-ba1b4429207431e7db4f652d3ca7cc7b.ctex"]
+source_file="res://Characters/Player/assets/player/Body.png"
+dest_files=["res://.godot/imported/Body.png-2f9e17b2bba85830923566325b2f4c44.ctex"]
 
 [params]
 
